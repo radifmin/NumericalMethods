@@ -12,4 +12,4 @@
 #include "NumMethods/LinearEquations/Iterative/Thomas.h"
 #include "NumMethods/LinearEquations/Iterative/Seidel.h"
 #include "NumMethods/LinearEquations/Iterative/Jacobi.h"
-#include "NumMethods/LinearEquations/Iterative/Relaxation.h"
+#include "NumMethods/LinearEquations/Iterative/UpRelaxation.h"
