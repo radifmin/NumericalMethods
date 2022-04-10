@@ -17,6 +17,11 @@ namespace UnitTests
 			Linear::Vector y = method.getSolutions();
 			std::cout << "Solution: " << y << '\n';
 
+			using Linear::h; using Linear::u;
+			std::cout << "ih \t\t yi \t\t u(ih) \t\t |yi-u(ih)|\n";
+			for(int i=0; i<Linear::n; i++)
+				std::cout<<i*h<<"\t\t"<<y[i]<<"\t\t"<<u(i*h)<<"\t\t"<<fabs(y[i]-u(i*h))<<'\n';
+
 			std::cout << "******Thomas test end************\n\n";
 		}
 
@@ -30,6 +35,11 @@ namespace UnitTests
 
 			Linear::Vector y = method.getSolutions();
 			std::cout << "Solution: " << y << '\n';
+
+			using Linear::h; using Linear::u;
+			std::cout << "ih\t\tyi\t\tu(ih)\t\t|yi-u(ih)|\n";
+			for (int i = 0; i < Linear::n; i++)
+				std::cout << i * h << "\t\t" << y[i] << "\t\t" << u(i * h) << "\t\t" << fabs(y[i] - u(i * h)) << '\n';
 
 			std::cout << "******Seidel test end************\n\n";
 		}
@@ -45,6 +55,11 @@ namespace UnitTests
 			Linear::Vector y = method.getSolutions();
 			std::cout << "Solution: " << y << '\n';
 
+			using Linear::h; using Linear::u;
+			std::cout << "ih\t\tyi\t\tu(ih)\t\t|yi-u(ih)|\n";
+			for (int i = 0; i < Linear::n; i++)
+				std::cout << i * h << "\t\t" << y[i] << "\t\t" << u(i * h) << "\t\t" << fabs(y[i] - u(i * h)) << '\n';
+
 			std::cout << "******Relaxation test end********\n\n";
 		}
 
@@ -58,6 +73,11 @@ namespace UnitTests
 
 			Linear::Vector y = method.getSolutions();
 			std::cout << "Solution: " << y << '\n';
+
+			using Linear::h; using Linear::u;
+			std::cout << "ih\t\tyi\t\tu(ih)\t\t|yi-u(ih)|\n";
+			for (int i = 0; i < Linear::n; i++)
+				std::cout << i * h << "\t\t" << y[i] << "\t\t" << u(i * h) << "\t\t" << fabs(y[i] - u(i * h)) << '\n';
 
 			std::cout << "******Jacobi test end************\n\n";
 		}

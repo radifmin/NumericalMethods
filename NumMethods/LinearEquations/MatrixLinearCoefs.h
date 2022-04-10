@@ -7,6 +7,7 @@ namespace Linear
 	{
 		std::array<double, n> v;
 	public:
+		Vector() { for (int i = 0; i < n; i++) v[i] = 0.0; }
 		double& operator[](int i) { return v[i]; }
 		const double& operator[](int i) const { return v[i]; }
 		void printVert() const {
@@ -15,7 +16,7 @@ namespace Linear
 		}
 		friend std::ostream& operator<<(std::ostream& os, const Linear::Vector& v)
 		{
-			for (int i = 0; i < Linear::n; i++)
+			for (int i = 0; i < n; i++)
 				os << v[i] << ' ';
 			//os << '\n';
 			return os;
@@ -31,8 +32,9 @@ namespace Linear
 		friend std::ostream& operator<<(std::ostream& os, const Linear::Matrix& mtx)
 		{
 			os << "Matrix<" << n << ">:\n";
-			for (int i = 0; i < Linear::n; i++)
-				os << mtx[i];
+			for (int i = 0; i < n-1; i++)
+				os << mtx[i]<<'\n';
+			os << mtx[n-1];
 			return os;
 		}
 	};
