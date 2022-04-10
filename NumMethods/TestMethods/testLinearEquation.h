@@ -48,7 +48,7 @@ namespace UnitTests
 		{
 			std::cout << "******Relaxation test start******\n";
 
-			Linear::ConcreteIterative::Relaxation method;
+			Linear::ConcreteIterative::UpRelaxation method;
 			Linear::Matrix mtx = method.getMatrix();
 			std::cout << mtx << '\n';
 
