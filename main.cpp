@@ -10,8 +10,8 @@ int main()
 
 	UnitTests::testLinearEquation::testThomas();
 	UnitTests::testLinearEquation::testSeidel();
-	UnitTests::testLinearEquation::testRelaxation();
+	UnitTests::testLinearEquation::testUpRelaxation();
 	UnitTests::testLinearEquation::testJacobi();
-
+	UnitTests::testLinearEquation::testDownRelaxation();
 	return 0;
 }
