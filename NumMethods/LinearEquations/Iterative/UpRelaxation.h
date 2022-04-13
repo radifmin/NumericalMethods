@@ -44,7 +44,7 @@ namespace Linear
 						y[i] /= mtx[i][i];
 
 						y[i] = w * y[i] + (1 - w) * temp[i];
-						w += 1 / n;
+						w += 1.0 / n;
 						if (fabs(y[i] - temp[i]) > norm)
 							norm = fabs(y[i] - temp[i]);
 						temp[i] = y[i];

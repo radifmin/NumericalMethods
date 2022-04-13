@@ -28,8 +28,8 @@ namespace Linear
 
 			virtual const Vector& getSolutions() override
 			{
-				double norm = 0.0;
 				double w = 0.0;
+				double norm = 0.0;
 				Vector temp;
 				do
 				{
@@ -42,9 +42,8 @@ namespace Linear
 								y[i] = y[i] - mtx[i][j] * y[j];
 						}
 						y[i] /= mtx[i][i];
-
 						y[i] = w * y[i] + (1 - w) * temp[i];
-						w += 1 / n;
+						w += 1.0 / n;
 						if (fabs(y[i] - temp[i]) > norm)
 							norm = fabs(y[i] - temp[i]);
 						temp[i] = y[i];
@@ -53,5 +52,5 @@ namespace Linear
 				return y;
 			}
 		};
-	} // ConcreteIterative
 } // Linear
+	} // ConcreteIterative
