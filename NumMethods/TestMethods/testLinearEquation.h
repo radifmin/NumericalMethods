@@ -98,11 +98,11 @@ namespace UnitTests
 
 			std::cout << "******Jacobi test end************\n\n";
 		}
-		static void testGreatDescent()
+		static void testGradientDescent()
 		{
-			std::cout << "******Great Descent test start******\n";
+			std::cout << "******GradientDescent test start******\n";
 
-			Linear::ConcreteIterative::GreatDescent method;
+			Linear::ConcreteIterative::GradientDescent method;
 			Linear::Matrix mtx = method.getMatrix();
 			std::cout << mtx << '\n';
 
@@ -114,7 +114,7 @@ namespace UnitTests
 			for (int i = 0; i < Linear::n; i++)
 				std::cout << i * h << "\t\t" << y[i] << "\t\t" << u(i * h) << "\t\t" << fabs(y[i] - u(i * h)) << '\n';
 
-			std::cout << "******Great Descent test end********\n\n";
+			std::cout << "******GradientDescent test end********\n\n";
 		}
 	};
 } // UnitTests

@@ -38,4 +38,35 @@ namespace Linear
 			return os;
 		}
 	};
+	double operator*(const Vector& v1, const Vector& v2)
+	{
+		double res = 0.0;
+		for (int i = 0; i < n; i++)
+			res += v1[i] * v2[i];
+		return res;
+	}
+	Vector operator*(const Matrix& m, const Vector& v)
+	{
+		Vector res;
+		for (int i = 0; i < n; i++)
+		{
+			for (int j = 0; j < n; j++)
+			{
+				res[i] += m[i][j];
+			}
+		}
+		return res;
+	}
+	Vector abs(Vector v)
+	{
+		for (int i = 0; i < n; i++)
+			v[i] = std::abs(v[i]);
+		return v;
+	}
+	bool operator>(const Vector& v, double val)
+	{
+		for (int i = 0; i < n; i++)
+			if (v[i] > val) return false;
+		return true;
+	}
 } // Linear

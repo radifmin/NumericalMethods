@@ -10,12 +10,10 @@ int main()
 	//// Iterative methods tests
 	//UnitTests::testLinearEquation::testThomas();
 	//UnitTests::testLinearEquation::testUpRelaxation();
-	//UnitTests::testLinearEquation::testJacobi();
 	//UnitTests::testLinearEquation::testDownRelaxation();
-	//UnitTests::testLinearEquation::testSeidel();
-	////UnitTests::testLinearEquation::testGreatDescent();
-
-	//Kursach tests
-	UnitTests::testKursach::testExercise();
+	//UnitTests::testLinearEquation::testJacobi();
+	UnitTests::testLinearEquation::testSeidel();
+	UnitTests::testLinearEquation::testGradientDescent();
+	system("pause");
 	return 0;
 }
