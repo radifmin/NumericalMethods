@@ -5,10 +5,10 @@ namespace Linear
 {
 	namespace ConcreteIterative
 	{
-		class UpRelaxation :public IterativeInterface::Tridiagonal
+		class DownRelaxation : public IterativeInterface::Tridiagonal
 		{
 		public:
-			UpRelaxation()
+			DownRelaxation()
 			{
 				InitializeMatrix();
 			}
@@ -28,21 +28,20 @@ namespace Linear
 
 			virtual const Vector& getSolutions() override
 			{
+				double w = 0.0;
 				double norm = 0.0;
-				double w = 1.0;
 				Vector temp;
 				do
 				{
 					for (int i = 1; i < n - 1; i++)
 					{
-						y[i] = f(i)*h*h;
+						y[i] = f(i) * h * h;
 						for (int j = 1; j < n - 1; j++)
 						{
 							if (i != j)
 								y[i] = y[i] - mtx[i][j] * y[j];
 						}
 						y[i] /= mtx[i][i];
-
 						y[i] = w * y[i] + (1 - w) * temp[i];
 						w += 1.0 / n;
 						if (fabs(y[i] - temp[i]) > norm)
@@ -53,5 +52,5 @@ namespace Linear
 				return y;
 			}
 		};
-	} // ConcreteIterative
 } // Linear
+	} // ConcreteIterative

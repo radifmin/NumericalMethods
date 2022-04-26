@@ -44,9 +44,9 @@ namespace UnitTests
 			std::cout << "******Seidel test end************\n\n";
 		}
 
-		static void testRelaxation()
+		static void testUpRelaxation()
 		{
-			std::cout << "******Relaxation test start******\n";
+			std::cout << "******UpRelaxation test start******\n";
 
 			Linear::ConcreteIterative::UpRelaxation method;
 			Linear::Matrix mtx = method.getMatrix();
@@ -60,9 +60,26 @@ namespace UnitTests
 			for (int i = 0; i < Linear::n; i++)
 				std::cout << i * h << "\t\t" << y[i] << "\t\t" << u(i * h) << "\t\t" << fabs(y[i] - u(i * h)) << '\n';
 
-			std::cout << "******Relaxation test end********\n\n";
+			std::cout << "******UpRelaxation test end********\n\n";
 		}
+		static void testDownRelaxation()
+		{
+			std::cout << "******DownRelaxation test start******\n";
 
+			Linear::ConcreteIterative::DownRelaxation method;
+			Linear::Matrix mtx = method.getMatrix();
+			std::cout << mtx << '\n';
+
+			Linear::Vector y = method.getSolutions();
+			std::cout << "Solution: " << y << '\n';
+
+			using Linear::h; using Linear::u;
+			std::cout << "ih\t\tyi\t\tu(ih)\t\t|yi-u(ih)|\n";
+			for (int i = 0; i < Linear::n; i++)
+				std::cout << i * h << "\t\t" << y[i] << "\t\t" << u(i * h) << "\t\t" << fabs(y[i] - u(i * h)) << '\n';
+
+			std::cout << "******DownRelaxation test end********\n\n";
+		}
 		static void testJacobi()
 		{
 			std::cout << "******Jacobi test start**********\n";
@@ -80,6 +97,24 @@ namespace UnitTests
 				std::cout << i * h << "\t\t" << y[i] << "\t\t" << u(i * h) << "\t\t" << fabs(y[i] - u(i * h)) << '\n';
 
 			std::cout << "******Jacobi test end************\n\n";
+		}
+		static void testGreatDescent()
+		{
+			std::cout << "******Great Descent test start******\n";
+
+			Linear::ConcreteIterative::GreatDescent method;
+			Linear::Matrix mtx = method.getMatrix();
+			std::cout << mtx << '\n';
+
+			Linear::Vector y = method.getSolutions();
+			std::cout << "Solution: " << y << '\n';
+
+			using Linear::h; using Linear::u;
+			std::cout << "ih\t\tyi\t\tu(ih)\t\t|yi-u(ih)|\n";
+			for (int i = 0; i < Linear::n; i++)
+				std::cout << i * h << "\t\t" << y[i] << "\t\t" << u(i * h) << "\t\t" << fabs(y[i] - u(i * h)) << '\n';
+
+			std::cout << "******Great Descent test end********\n\n";
 		}
 	};
 } // UnitTests
