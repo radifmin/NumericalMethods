@@ -12,10 +12,10 @@ namespace UnitTests
 
 			Linear::ConcreteIterative::Thomas method;
 			Linear::Matrix mtx = method.getMatrix();
-			std::cout << mtx << '\n';
+			//std::cout << mtx << '\n';
 
 			Linear::Vector y = method.getSolutions();
-			std::cout << "Solution: " << y << '\n';
+			//std::cout << "Solution: " << y << '\n';
 
 			using Linear::h; using Linear::u;
 			std::cout << "ih \t\t yi \t\t u(ih) \t\t |yi-u(ih)|\n";
@@ -31,10 +31,10 @@ namespace UnitTests
 
 			Linear::ConcreteIterative::Seidel method;
 			Linear::Matrix mtx = method.getMatrix();
-			std::cout << mtx << '\n';
+			//std::cout << mtx << '\n';
 
 			Linear::Vector y = method.getSolutions();
-			std::cout << "Solution: " << y << '\n';
+			//std::cout << "Solution: " << y << '\n';
 
 			using Linear::h; using Linear::u;
 			std::cout << "ih\t\tyi\t\tu(ih)\t\t|yi-u(ih)|\n";
@@ -50,10 +50,10 @@ namespace UnitTests
 
 			Linear::ConcreteIterative::UpRelaxation method;
 			Linear::Matrix mtx = method.getMatrix();
-			std::cout << mtx << '\n';
+			//std::cout << mtx << '\n';
 
 			Linear::Vector y = method.getSolutions();
-			std::cout << "Solution: " << y << '\n';
+			//std::cout << "Solution: " << y << '\n';
 
 			using Linear::h; using Linear::u;
 			std::cout << "ih\t\tyi\t\tu(ih)\t\t|yi-u(ih)|\n";
@@ -62,16 +62,17 @@ namespace UnitTests
 
 			std::cout << "******UpRelaxation test end********\n\n";
 		}
+
 		static void testDownRelaxation()
 		{
 			std::cout << "******DownRelaxation test start******\n";
 
 			Linear::ConcreteIterative::DownRelaxation method;
 			Linear::Matrix mtx = method.getMatrix();
-			std::cout << mtx << '\n';
+			//std::cout << mtx << '\n';
 
 			Linear::Vector y = method.getSolutions();
-			std::cout << "Solution: " << y << '\n';
+			//std::cout << "Solution: " << y << '\n';
 
 			using Linear::h; using Linear::u;
 			std::cout << "ih\t\tyi\t\tu(ih)\t\t|yi-u(ih)|\n";
@@ -80,16 +81,17 @@ namespace UnitTests
 
 			std::cout << "******DownRelaxation test end********\n\n";
 		}
+
 		static void testJacobi()
 		{
 			std::cout << "******Jacobi test start**********\n";
 
 			Linear::ConcreteIterative::Jacobi method;
 			Linear::Matrix mtx = method.getMatrix();
-			std::cout << mtx << '\n';
+			//std::cout << mtx << '\n';
 
 			Linear::Vector y = method.getSolutions();
-			std::cout << "Solution: " << y << '\n';
+			//std::cout << "Solution: " << y << '\n';
 
 			using Linear::h; using Linear::u;
 			std::cout << "ih\t\tyi\t\tu(ih)\t\t|yi-u(ih)|\n";
@@ -98,16 +100,17 @@ namespace UnitTests
 
 			std::cout << "******Jacobi test end************\n\n";
 		}
+
 		static void testGradientDescent()
 		{
 			std::cout << "******GradientDescent test start******\n";
 
 			Linear::ConcreteIterative::GradientDescent method;
 			Linear::Matrix mtx = method.getMatrix();
-			std::cout << mtx << '\n';
+			//std::cout << mtx << '\n';
 
 			Linear::Vector y = method.getSolutions();
-			std::cout << "Solution: " << y << '\n';
+			//std::cout << "Solution: " << y << '\n';
 
 			using Linear::h; using Linear::u;
 			std::cout << "ih\t\tyi\t\tu(ih)\t\t|yi-u(ih)|\n";

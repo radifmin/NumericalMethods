@@ -31,6 +31,7 @@ namespace Linear
 				double norm = 0.0;
 				double w = 1.0;
 				Vector temp;
+				int k = 0;
 				do
 				{
 					for (int i = 1; i < n - 1; i++)
@@ -42,14 +43,15 @@ namespace Linear
 								y[i] = y[i] - mtx[i][j] * y[j];
 						}
 						y[i] /= mtx[i][i];
-
 						y[i] = w * y[i] + (1 - w) * temp[i];
 						w += 1.0 / n;
 						if (fabs(y[i] - temp[i]) > norm)
 							norm = fabs(y[i] - temp[i]);
 						temp[i] = y[i];
 					}
+					k++;
 				} while (norm < EPS);
+				std::cout << "iterations: " << k << '\n';
 				return y;
 			}
 		};

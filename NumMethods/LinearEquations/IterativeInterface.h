@@ -27,7 +27,8 @@ namespace Linear
 				if (n > 2)
 				{
 					alphas[0] = bi / ci;
-					bettas[0] = (f(0) * h * h) / ci;
+					//bettas[0] = (f(0.0) * h * h) / ci;
+					bettas[0] = 0.0;
 					mtx[0][0] = ai;
 					mtx[0][1] = ci;
 					mtx[0][2] = bi;

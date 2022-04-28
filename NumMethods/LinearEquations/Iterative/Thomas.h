@@ -34,6 +34,7 @@ namespace Linear
 					y[i] = alphas[i + 1] * y[i + 1] + bettas[i + 1];
 				}
 				y[0] = 0.0;
+
 				return y;
 			}
 		};

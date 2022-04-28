@@ -1,9 +1,9 @@
 #pragma once
 namespace Linear
 {
-	const double alpha = 3.0;
+	const double alpha = 1.0;
 	const double betta = 2.0;
-	const double gamma = 2.0;
+	const double gamma = 1.0;
 	const int n = 10;
 	const double h = 1.0 / double(n);
 	const double EPS = h * h * h;

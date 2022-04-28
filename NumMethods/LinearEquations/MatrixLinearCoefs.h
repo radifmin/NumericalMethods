@@ -26,7 +26,8 @@ namespace Linear
 	{
 		std::array<Vector, n> mtx;
 	public:
-		Matrix() { std::cout << "Matrix with dimension " << n << " has instantiated.\n"; }
+		//Matrix() { std::cout << "Matrix with dimension " << n << " has instantiated.\n"; }
+		Matrix() = default;
 		Vector& operator[](int i) { return mtx[i]; }
 		const Vector& operator[](int i) const { return mtx[i]; }
 		friend std::ostream& operator<<(std::ostream& os, const Linear::Matrix& mtx)
@@ -66,7 +67,7 @@ namespace Linear
 	bool operator>(const Vector& v, double val)
 	{
 		for (int i = 0; i < n; i++)
-			if (v[i] > val) return false;
+			if (v[i] < val) return false;
 		return true;
 	}
 } // Linear

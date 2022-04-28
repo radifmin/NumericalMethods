@@ -31,6 +31,7 @@ namespace Linear
 				double w = 0.0;
 				double norm = 0.0;
 				Vector temp;
+				int k = 0;
 				do
 				{
 					for (int i = 1; i < n - 1; i++)
@@ -48,9 +49,11 @@ namespace Linear
 							norm = fabs(y[i] - temp[i]);
 						temp[i] = y[i];
 					}
+					k++;
 				} while (norm < EPS);
+				std::cout << "iterations: " << k << '\n';
 				return y;
 			}
 		};
-} // Linear
-	} // ConcreteIterative
+	} // Linear
+} // ConcreteIterative

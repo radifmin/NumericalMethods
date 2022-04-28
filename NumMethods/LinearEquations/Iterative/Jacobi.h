@@ -31,24 +31,24 @@ namespace Linear
 			{
 				Vector temp;
 				double norm = 0.0;
-
+				int k = 0;
 				do {
-					for(int i = 1; i < n-1; i++) {
+					for (int i = 1; i < n-1; i++) {
 						temp[i] = f(i) * h * h;
-						for (int g = 1; g < n-1; g++) {
-							if (i != g)
-								temp[i] -= mtx[i][g] * y[g];
+						for (int j = 1; j < n-1; j++) {
+							if (j != i) temp[i] -= mtx[i][j] * y[j];
 						}
 						temp[i] /= mtx[i][i];
 					}
 					norm = fabs(y[0] - temp[0]);
-					for (int h = 1; h < n-1; h++) {
-						if (fabs(y[h] - temp[h]) > norm)
-							norm = fabs(y[h] - temp[h]);
-						y[h] = temp[h];
+					for (int k = 1; k < n-1; k++) {
+						if (fabs(y[k] - temp[k]) > norm)
+							norm = fabs(y[k] - temp[k]);
+						y[k] = temp[k];
 					}
+					k++;
 				} while (norm > EPS);
-
+				std::cout << "iterations: " << k << '\n';
 				return y;
 			}
 		};
