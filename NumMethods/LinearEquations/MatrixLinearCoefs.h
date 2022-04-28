@@ -51,10 +51,7 @@ namespace Linear
 		Vector res;
 		for (int i = 0; i < n; i++)
 		{
-			for (int j = 0; j < n; j++)
-			{
-				res[i] += m[i][j];
-			}
+			res[i] = m[i] * v;
 		}
 		return res;
 	}
