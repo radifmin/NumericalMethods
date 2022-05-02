@@ -55,5 +55,5 @@ namespace Linear
 				return y;
 			}
 		};
-	} // Linear
-} // ConcreteIterative
+	} // ConcreteIterative
+} // Linear

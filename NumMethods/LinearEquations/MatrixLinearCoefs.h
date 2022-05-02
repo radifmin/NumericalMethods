@@ -63,7 +63,7 @@ namespace Linear
 	}
 	bool operator>(const Vector& v, double val)
 	{
-		for (int i = 0; i < n; i++)
+		for (int i = 1; i < n-1; i++)
 			if (v[i] < val) return false;
 		return true;
 	}

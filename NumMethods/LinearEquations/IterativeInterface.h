@@ -33,13 +33,12 @@ namespace Linear
 					mtx[0][1] = ci;
 					mtx[0][2] = bi;
 				}
-				else return;
 
 				for (int i = 1; i < n - 1; i++)
 				{
-					double ai = alphas[i - 1] * a(i);
-					double ci = a(i) + a(i + 1) + h * h * g(i);
-					double bi = a(i + 1);
+					ai = alphas[i - 1] * a(i);
+					ci = a(i) + a(i + 1) + h * h * g(i);
+					bi = a(i + 1);
 
 					mtx[i][i - 1] = ai;
 					mtx[i][i] = ci;

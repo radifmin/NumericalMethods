@@ -1,8 +1,8 @@
 #pragma once
 namespace Linear
 {
-	const double alpha = 1.0;
-	const double betta = 2.0;
+	const double alpha = 2.0;
+	const double betta = 1.0;
 	const double gamma = 1.0;
 	const int n = 10;
 	const double h = 1.0 / double(n);
@@ -14,7 +14,8 @@ namespace Linear
 	}
 	double p_(double x)
 	{
-		return gamma * std::pow(x, gamma - 1);
+		return gamma
+			*(gamma==1?1:std::pow(x, gamma - 1));
 	}
 	double q(double x)
 	{
@@ -22,18 +23,28 @@ namespace Linear
 	}
 	double u(double x)
 	{
-		return std::pow(x, alpha) * std::pow(1 - x, betta);
+		return std::pow(x, alpha)
+			*std::pow(1 - x, betta);
 	}
 	double u_(double x)
 	{
-		return alpha * betta * std::pow(x, alpha - 1) * std::pow(1 - x, betta - 1)
-			- betta * std::pow(x, alpha) * std::pow(1 - x, betta - 1);
+		return alpha * betta
+			*(alpha==1?1:std::pow(x, alpha - 1))
+			*(betta==1?1:std::pow(1 - x, betta - 1))
+		    -betta * std::pow(x, alpha)
+			*(betta==1?1:std::pow(1 - x, betta - 1));
 	}
 	double u__(double x)
 	{
-		return alpha * (alpha - 1) * std::pow(x, alpha - 2) * std::pow(1 - x, betta)
-			- 2 * alpha * betta * std::pow(x, alpha - 1) * std::pow(1 - x, betta - 1)
-			+ betta * (betta - 1) * std::pow(x, alpha) * std::pow(1 - x, betta - 2);
+		return alpha
+			*(alpha - 1)
+			*(alpha==2?1:std::pow(x, alpha - 2))
+			*std::pow(1 - x, betta)
+			-2 * alpha * betta
+			*(alpha==1?1:std::pow(x, alpha - 1))
+			*(betta==1?1:std::pow(1 - x, betta - 1))
+			+betta * (betta - 1) * std::pow(x, alpha)
+			*(betta==2?1:std::pow(1 - x, betta - 2));
 	}
 	double f(double x)
 	{

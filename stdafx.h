@@ -11,7 +11,7 @@
 #include "NumMethods/LinearEquations/Iterative/Seidel.h"
 #include "NumMethods/LinearEquations/Iterative/Jacobi.h"
 #include "NumMethods/LinearEquations/Iterative/UpRelaxation.h"
-#include "NumMethods/LinearEquations/Iterative/DownRelaxtion.h"
+#include "NumMethods/LinearEquations/Iterative/DownRelaxation.h"
 #include "NumMethods/LinearEquations/Iterative/GradientDescent.h"
 
 //Kursach

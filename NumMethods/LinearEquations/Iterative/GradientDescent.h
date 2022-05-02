@@ -39,9 +39,8 @@ namespace Linear
 						double ci = mtx[i][i];
 						double bi = mtx[i][i + 1];
 
-						r[i] = -ai * y[i - 1] + ci * y[i] - bi * y[i + 1] - f(i) * h * h;
-
 						y[i] = y[i - 1] - t * r[i];
+						r[i] = -ai * y[i - 1] + ci * y[i] - bi * y[i + 1] - f(i) * h * h;
 					}
 
 					t = r * r / ((mtx * r) * r);
