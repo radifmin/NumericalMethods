@@ -5,7 +5,7 @@ namespace Linear
 {
 	namespace ConcreteIterative
 	{
-		class GradientDescent :IterativeInterface::Tridiagonal
+		class GradientDescent : IterativeInterface::Tridiagonal
 		{
 		public:
 			GradientDescent()
@@ -39,12 +39,10 @@ namespace Linear
 						double ci = mtx[i][i];
 						double bi = mtx[i][i + 1];
 
-						y[i] = y[i - 1] - t * r[i];
 						r[i] = -ai * y[i - 1] + ci * y[i] - bi * y[i + 1] - f(i) * h * h;
 					}
-
 					t = r * r / ((mtx * r) * r);
-					//r = mtx * y - b;
+					y = y - t*r;
 					k++;
 				} while (abs(r) > EPS);
 				std::cout << "iterations: " << k << '\n';

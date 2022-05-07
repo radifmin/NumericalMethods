@@ -28,31 +28,35 @@ namespace Linear
 
 			virtual const Vector& getSolutions() override
 			{
-				double norm = 0.0;
-				double w = 1.0;
-				Vector temp;
-				int k = 0;
-				do
+				Vector best;
+				int pre_k = INT32_MAX;
+				double step = 1.0/10.0;
+				for (double w = 1.0; w < 2.0+step; w += step)
 				{
-					for (int i = 1; i < n - 1; i++)
+					Vector temp;
+					Vector r;
+					int k = 0;
+					do
 					{
-						y[i] = f(i)*h*h;
-						for (int j = 1; j < n - 1; j++)
+						for (int i = 1; i < n - 1; i++)
 						{
-							if (i != j)
-								y[i] = y[i] - mtx[i][j] * y[j];
+							y[i] = (1 - w) * temp[i] + w * (a(i) * y[i - 1] + a(i + 1) * temp[i + 1] + f(i) * h * h) / mtx[i][i];
 						}
-						y[i] /= mtx[i][i];
-						y[i] = w * y[i] + (1 - w) * temp[i];
-						w += 1.0 / n;
-						if (fabs(y[i] - temp[i]) > norm)
-							norm = fabs(y[i] - temp[i]);
-						temp[i] = y[i];
+						r = temp - y;
+						temp = y;
+						k++;
+					} while (abs(r) > EPS);
+					// choosing the best solution
+					if (k < pre_k && w>0) {
+						pre_k = k;
+						best = y;
 					}
-					k++;
-				} while (norm < EPS);
-				std::cout << "iterations: " << k << '\n';
-				return y;
+					std::cout << "w \t" << "k\n"
+						<< w << " \t" << k << '\n'
+						<< "y: " << y << "\n";
+				}
+				std::cout << '\n';
+				return best;
 			}
 		};
 	} // ConcreteIterative

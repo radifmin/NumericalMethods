@@ -45,14 +45,14 @@ namespace Linear
 					mtx[i][i + 1] = bi;
 
 					alphas[i] = bi / (ci - ai);
-					bettas[i] = (f(i) * h * h + bettas[i - 1] * a(i)) / (ci - ai);
+					bettas[i] = (f(i) * h * h - bettas[i - 1] * a(i)) / (ci - ai);
 				}
 
 				ai = alphas[n - 2] * a(n - 1);
 				ci = a(n - 1) + a(n) + h * h * g(n - 1);
 				bi = 0.0;
 				alphas[n - 1] = bi / (ci - ai);
-				bettas[n - 1] = (f(n - 1) * h * h + bettas[n - 2] * a(n - 1)) / (ci - ai);
+				bettas[n - 1] = (f(n - 1) * h * h - bettas[n - 2] * a(n - 1)) / (ci - ai);
 				mtx[n - 1][n - 3] = ai;
 				mtx[n - 1][n - 2] = ci;
 				mtx[n - 1][n - 1] = bi;

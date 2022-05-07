@@ -7,13 +7,12 @@
 
 int main()
 {
-	//// Iterative methods tests
-	//UnitTests::testLinearEquation::testThomas();
-	//UnitTests::testLinearEquation::testUpRelaxation();
-	//UnitTests::testLinearEquation::testDownRelaxation();
-	//UnitTests::testLinearEquation::testJacobi();
+	// Iterative methods tests
+	UnitTests::testLinearEquation::testThomas();
+	UnitTests::testLinearEquation::testDownRelaxation();
+	UnitTests::testLinearEquation::testUpRelaxation();
+	UnitTests::testLinearEquation::testJacobi();
 	UnitTests::testLinearEquation::testSeidel();
 	UnitTests::testLinearEquation::testGradientDescent();
-	system("pause");
 	return 0;
 }

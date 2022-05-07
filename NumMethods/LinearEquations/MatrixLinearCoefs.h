@@ -10,9 +10,12 @@ namespace Linear
 		Vector() { for (int i = 0; i < n; i++) v[i] = 0.0; }
 		double& operator[](int i) { return v[i]; }
 		const double& operator[](int i) const { return v[i]; }
-		void printVert() const {
-			for (int i = 0; i < n; i++)
-				std::cout << v[i] << '\n';
+		std::string printVert() const {
+			std::string out;
+			for (int i = 0; i < n; i++) {
+				std::cout << v[i] << '\n'; out += v[i];
+			}
+			return out;
 		}
 		friend std::ostream& operator<<(std::ostream& os, const Linear::Vector& v)
 		{
@@ -46,6 +49,12 @@ namespace Linear
 			res += v1[i] * v2[i];
 		return res;
 	}
+	Vector operator*(double val, Vector v)
+	{
+		for (int i = 0; i < n; i++)
+			v[i] = v[i] * val;
+		return v;
+	}
 	Vector operator*(const Matrix& m, const Vector& v)
 	{
 		Vector res;
@@ -54,6 +63,12 @@ namespace Linear
 			res[i] = m[i] * v;
 		}
 		return res;
+	}
+	Vector operator-(Vector v1, const Vector& v2)
+	{
+		for (int i = 0; i < n; i++)
+			v1[i] = v1[i] - v2[i];
+		return v1;
 	}
 	Vector abs(Vector v)
 	{

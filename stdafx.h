@@ -3,6 +3,7 @@
 #include <array>
 
 #define DEBUG_LIB
+
 // NumMethods
 #include "NumMethods/LinearEquations/Config.h";
 #include "NumMethods/LinearEquations/MatrixLinearCoefs.h"

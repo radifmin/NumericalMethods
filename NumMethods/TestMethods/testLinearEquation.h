@@ -55,6 +55,7 @@ namespace UnitTests
 			Linear::Vector y = method.getSolutions();
 			//std::cout << "Solution: " << y << '\n';
 
+			std::cout << "Best solution:\n";
 			using Linear::h; using Linear::u;
 			std::cout << "ih\t\tyi\t\tu(ih)\t\t|yi-u(ih)|\n";
 			for (int i = 0; i < Linear::n; i++)
@@ -74,6 +75,7 @@ namespace UnitTests
 			Linear::Vector y = method.getSolutions();
 			//std::cout << "Solution: " << y << '\n';
 
+			std::cout << "Best solution:\n";
 			using Linear::h; using Linear::u;
 			std::cout << "ih\t\tyi\t\tu(ih)\t\t|yi-u(ih)|\n";
 			for (int i = 0; i < Linear::n; i++)
@@ -106,16 +108,15 @@ namespace UnitTests
 			std::cout << "******GradientDescent test start******\n";
 
 			Linear::ConcreteIterative::GradientDescent method;
-			Linear::Matrix mtx = method.getMatrix();
-			//std::cout << mtx << '\n';
+			Linear::ConcreteIterative::Thomas method2;
 
 			Linear::Vector y = method.getSolutions();
-			//std::cout << "Solution: " << y << '\n';
+			Linear::Vector y2 = method2.getSolutions();
 
 			using Linear::h; using Linear::u;
-			std::cout << "ih\t\tyi\t\tu(ih)\t\t|yi-u(ih)|\n";
+			std::cout << "ih\t\tyi\t\tprogonka\t\t|yi-progonka|\n";
 			for (int i = 0; i < Linear::n; i++)
-				std::cout << i * h << "\t\t" << y[i] << "\t\t" << u(i * h) << "\t\t" << fabs(y[i] - u(i * h)) << '\n';
+				std::cout << i * h << "\t\t" << y[i] << "\t\t" << y2[i]/*u(i * h)*/ << "\t\t" << fabs(y[i] - y2[i]/*u(i * h)*/) << '\n';
 
 			std::cout << "******GradientDescent test end********\n\n";
 		}
